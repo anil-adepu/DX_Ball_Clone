@@ -1,0 +1,30 @@
+package my_main;
+
+public class thread1 extends Thread{
+
+	//constructor
+	public thread1() {
+		
+		theBall = new Ball();
+		thePaddle = new Paddle(120,12);
+		
+	}
+	
+	public void run() {
+		
+		game_panel.checkCollisions();
+		theBall.update();
+
+		thePaddle.update();
+		
+		for(PowerUp pu : powerUps) {
+			pu.update();
+		}
+		
+		if(((System.nanoTime() - screenShakeTimer) / 1000000 > 300) && ScreenShakeActive) {
+			ScreenShakeActive = false;
+		}
+		
+	}
+	
+}

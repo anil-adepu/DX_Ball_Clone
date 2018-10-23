@@ -1,0 +1,80 @@
+package my_main;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+
+public class Paddle {
+
+	//Fields
+	private double x;
+	private int width , height , startWidth;
+	private long widthTimer;
+	private boolean altWidth;
+	
+	public final int YPOS = game_main.HEIGHT - 75;
+	 
+	
+	//constructor
+	public Paddle(int theWidth, int theHeight) {
+	
+		width = theWidth;
+		height = theHeight;
+		startWidth = theWidth;
+		altWidth = false;
+		
+		x = game_main.WIDTH / 2 - width / 2;
+	}
+
+	//update
+	public void update() {
+		
+		if(System.nanoTime() - widthTimer / 1000 > 9000000) {
+			width = startWidth;
+			altWidth = false;
+		}
+	}
+
+	//draw
+	public void draw(Graphics2D g) {
+		
+		g.setColor(Color.RED);
+		g.fill3DRect( (int) x, YPOS, width, height,false);
+	
+		if(altWidth == true) {
+			g.setColor(Color.white);
+			g.setFont(new Font("Courier New",Font.BOLD,18));
+			g.
+		}
+		
+	}
+
+	//for restricting paddle movement to the edges
+	public void mouseMoved(int mouseXpos) {
+		x = mouseXpos;
+			if( x > game_main.WIDTH - width) {
+				x = game_main.WIDTH - width;
+			}
+	}
+
+	public Rectangle getRect() {
+		
+		return new Rectangle((int) x, YPOS, width, height);
+	}
+
+	public int getWidth() { return width; }
+
+	public void setWidth( double theWidth) {
+		altWidth = true;
+		width = (int) theWidth;
+		setWidthTimer();
+	}
+	
+	public void setWidthTimer() {
+		widthTimer = System.nanoTime();
+	}
+
+}
+
+
+

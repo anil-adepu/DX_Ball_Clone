@@ -1,0 +1,18 @@
+package my_main;
+
+public class thread1 extends Thread{
+
+	//constructor
+	public thread1() {
+		
+		
+		
+	}
+	
+	public void run() {
+		
+		
+		
+	}
+	
+}

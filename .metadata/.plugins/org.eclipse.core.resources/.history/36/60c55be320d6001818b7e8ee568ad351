@@ -1,0 +1,63 @@
+package my_main;
+
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+public class thread1 extends Thread implements Runnable{
+
+	//fields
+	private Ball theBall;
+	private Paddle thePaddle;
+	
+	//constructor
+	public thread1() {
+		
+		init();
+		
+		theBall = new Ball();
+		thePaddle = new Paddle(120,12);
+		
+	}
+	
+	public void init() {
+		theBall = new Ball();
+		thePaddle = new Paddle(120,12);
+//		theMap = new Map(8,9);
+//		theHud = new HUD();
+//		theMouseListener = new MyMouseMotionListener();
+	//	powerUps = new ArrayList<PowerUp>();
+		
+		//addMouseMotionListener(theMouseListener);
+		
+	//	running = true;
+	//	ScreenShakeActive = false;
+	//	screenShakeTimer = System.nanoTime(); 
+		
+	//	image = new BufferedImage(game_main.WIDTH, game_main.HEIGHT, BufferedImage.TYPE_INT_BGR);
+		
+	//	g =  (Graphics2D) image.getGraphics();
+	//	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		
+	}
+
+	
+	public void run() {
+		
+		checkCollisions();
+		theBall.update();
+
+		thePaddle.update();
+		
+		for(PowerUp pu : powerUps) {
+			pu.update();
+		}
+		
+		if(((System.nanoTime() - screenShakeTimer) / 1000000 > 300) && ScreenShakeActive) {
+			ScreenShakeActive = false;
+		}
+		
+	}
+	
+}

@@ -1,0 +1,31 @@
+
+// A simple clone of break out game using multithreading
+
+package my_main;
+
+import javax.swing.JFrame;
+
+public class game_main {
+	
+	public static final int WIDTH = 800 , HEIGHT = 560;
+	
+	public static void main( String[] args ) {
+		
+		//JFrame theFrame =  new JFrame("MINIMUM_BREAK_OUT_GAME");
+
+		game_panel PanelObj = new game_panel();
+		
+		Thread ThreadObj = new Thread(PanelObj);
+		ThreadObj.start();
+
+		//thread1 obj = new thread1();
+
+		/*theFrame.setSize(WIDTH , HEIGHT);
+		theFrame.setLocationRelativeTo(null);
+		theFrame.setResizable(false);		
+		theFrame.add(obj);
+		
+		theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		theFrame.setVisible(true);	*/	
+	}
+}

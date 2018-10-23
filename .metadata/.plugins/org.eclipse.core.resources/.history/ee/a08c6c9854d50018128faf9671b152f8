@@ -1,0 +1,47 @@
+package my_main;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+public class PowerUp {
+
+	//fields
+	private int x, y, dy, type, width, height;
+	
+	private boolean isOnScreen;
+	
+	private Color color;
+	
+	public final static int WIDEPADDLE = 4;
+	public final static int FASTBALL = 5;
+	
+	public PowerUp(int xStart, int yStart, int theType, int theDY, int theWidth, int theHeight) {
+		
+	}
+	
+	public void draw(Graphics2D g) {
+		
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int newX) {
+		x = newX;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int newY) {
+		y = newY;
+	}
+
+
+	
+	
+	
+	
+}
